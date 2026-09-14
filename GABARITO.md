@@ -1,14 +1,10 @@
-# Gabarito comentado — correção dos exercícios
-
-> Uso sugerido: projete a tela, abra o exercício e **peça para a turma ditar o próximo teste** antes de mostrar o código. A correção rende muito mais como conversa do que como leitura.
-
----
+# Gabarito comentado
 
 ## Exercício 1 — Calculadora de Frete
 
 ### Como a implementação evolui, ciclo a ciclo
 
-**Depois da regra 1** (o mais simples que passa — mostre que isso é aceitável):
+**Depois da regra 1** (o mais simples que passa — e isso é aceitável):
 
 ```java
 public double calcular(double pesoEmKg) {
@@ -129,9 +125,9 @@ class CalculadoraDeFreteTest {
 }
 ```
 
-### 🎯 Pontos para puxar na correção
+### 🎯 Pontos de atenção
 
-- **Quem começou com `return 10.0` e se sentiu culpado?** Levante a mão. Isso é TDD correto, não preguiça. O código só generaliza quando um teste exige.
+- **Começou com `return 10.0` e achou que era trapaça?** Isso é TDD correto, não preguiça. O código só generaliza quando um teste exige.
 - **O `@BeforeEach` apareceu no refactor.** Repare: no começo cada teste criava a calculadora. A duplicação incomodou, extraímos. **Teste também se refatora.**
-- **Faltou alguém testar 5 kg exatos?** É o limite entre as faixas. Se a pessoa escreveu `< 5` em vez de `<= 5`, nenhum teste pega. Vale acrescentar o caso ali na hora e ver o efeito.
-- **Ninguém precisou usar o debugger.** Quando o ciclo é curto, o erro está sempre nas últimas 5 linhas que você escreveu.
+- **Você testou 5 kg exatos?** É o limite entre as faixas. Se a implementação usar `< 5` em vez de `<= 5`, só um teste com exatamente 5 kg pega o erro. Vale acrescentar esse caso e ver o efeito.
+- **Não foi preciso usar o debugger.** Quando o ciclo é curto, o erro está sempre nas últimas 5 linhas que você escreveu.
