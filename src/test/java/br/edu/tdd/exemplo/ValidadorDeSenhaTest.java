@@ -26,4 +26,11 @@ class ValidadorDeSenhaTest {
 
         assertFalse(validador.ehValida("Abcdefgh"));
     }
+
+    @Test
+    void senhaSemLetraMaiusculaEhInvalida() {
+        ValidadorDeSenha validador = new ValidadorDeSenha();
+
+        assertFalse(validador.ehValida("abcd1234"));
+    }
 }

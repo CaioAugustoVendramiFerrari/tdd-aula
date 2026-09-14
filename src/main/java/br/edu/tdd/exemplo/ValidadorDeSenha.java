@@ -7,11 +7,15 @@ public class ValidadorDeSenha {
             return false;
         }
         boolean temNumero = false;
+        boolean temMaiuscula = false;
         for (char c : senha.toCharArray()) {
             if (Character.isDigit(c)) {
                 temNumero = true;
             }
+            if (Character.isUpperCase(c)) {
+                temMaiuscula = true;
+            }
         }
-        return temNumero;
+        return temNumero && temMaiuscula;
     }
 }
