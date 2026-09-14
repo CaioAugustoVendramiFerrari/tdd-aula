@@ -1,12 +1,5 @@
 # Exemplo ao vivo — Validador de Senha
 
-> Este é o roteiro do **Parte 5: Exemplos**. A ideia é digitar o código na frente da turma, um ciclo por vez, projetando a tela. Cada ciclo já está salvo como um commit na branch `exemplo` do GitHub — é a sua rede de segurança se travar.
-
-**Tempo estimado:** 15 a 20 minutos.
-**O que a turma precisa ver:** a barra vermelha aparecendo antes de cada implementação.
-
-**Problema:** implementar uma classe que valida se uma senha é aceitável.
-
 Regras (não mostre todas de uma vez — revele uma por ciclo):
 
 1. Senha com menos de 8 caracteres é inválida
