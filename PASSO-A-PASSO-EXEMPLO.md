@@ -100,10 +100,6 @@ Rode: o teste novo falha. **O `return false` foi desmascarado pelo segundo teste
 
 Rode: **os dois** testes passam.
 
-**Fale para a turma:** essa técnica de escrever um segundo caso para forçar a generalização se chama **triangulação**. Um ponto não define uma reta; dois definem.
-
-> 🛟 Travou? Commit **ciclo 2: triangulacao derruba o return false** da branch `exemplo`.
-
 ---
 
 ## Ciclo 3 — Precisa ter número
