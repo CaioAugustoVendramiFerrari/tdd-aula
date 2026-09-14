@@ -19,4 +19,11 @@ class ValidadorDeSenhaTest {
 
         assertTrue(validador.ehValida("Abcd1234"));
     }
+
+    @Test
+    void senhaSemNumeroEhInvalida() {
+        ValidadorDeSenha validador = new ValidadorDeSenha();
+
+        assertFalse(validador.ehValida("Abcdefgh"));
+    }
 }
