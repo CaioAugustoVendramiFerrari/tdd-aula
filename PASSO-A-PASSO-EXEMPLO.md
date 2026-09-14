@@ -47,7 +47,7 @@ class ValidadorDeSenhaTest {
 
 ### 🟢 GREEN — o mínimo para passar
 
-Deixe o próprio teste criar a classe, na frente da turma:
+Deixe o próprio teste criar a classe:
 
 1. Clique em `ValidadorDeSenha` (sublinhado) → **Ctrl+1** → `Create class 'ValidadorDeSenha'`
 2. ⚠️ Na janela, troque **Source folder** para `tdd-exemplo/src/main/java` — o Eclipse sugere `src/test/java` → **Finish**
