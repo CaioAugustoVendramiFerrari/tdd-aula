@@ -70,9 +70,6 @@ public class ValidadorDeSenha {
 
 Rode: botão direito no teste → `Run As > JUnit Test` (**Alt+Shift+X**, depois **T**). **Barra verde.**
 
-**Fale para a turma:** sim, `return false` é trapaça — e repare que nem fui eu que escrevi, foi o Eclipse. E está certo. No TDD isso tem nome: *fake it till you make it*. Escrevemos a coisa mais boba que faz o teste passar; é o **próximo teste** que vai nos obrigar a escrever o código de verdade. Isso garante que nenhuma linha de código exista sem um teste que a justifique.
-
-> 🛟 Travou? Este ciclo pronto está no commit **ciclo 1: senha curta e invalida (fake it com return false)** da branch `exemplo`.
 
 ---
 
