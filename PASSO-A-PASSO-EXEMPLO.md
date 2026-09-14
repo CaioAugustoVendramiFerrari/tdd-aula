@@ -1,6 +1,6 @@
-# Exemplo ao vivo — Validador de Senha
+# Exemplo passo a passo — Validador de Senha
 
-Regras (não mostre todas de uma vez — revele uma por ciclo):
+O objetivo é construir, com TDD, uma classe que valida senhas. As regras são implementadas **uma por ciclo**:
 
 1. Senha com menos de 8 caracteres é inválida
 2. Senha com 8 ou mais caracteres é válida
@@ -134,8 +134,6 @@ Falha: hoje `"Abcdefgh"` tem 8 caracteres, então passa pela validação atual.
     }
 ```
 
-> 🛟 Travou? Commit **ciclo 3: exige numero** da branch `exemplo`.
-
 ---
 
 ## Ciclo 4 — Precisa ter letra maiúscula
@@ -174,8 +172,6 @@ Falha: hoje `"Abcdefgh"` tem 8 caracteres, então passa pela validação atual.
 
 Quatro testes verdes. **Mas olhe para esse método.** Ele está feio: faz três coisas ao mesmo tempo, tem flags soltas, e para entender a regra você precisa ler o laço inteiro.
 
-> 🛟 Travou? Commit **ciclo 4: exige maiuscula** da branch `exemplo`.
-
 ---
 
 ## 🔵 REFACTOR — a etapa que todo mundo pula
@@ -211,19 +207,15 @@ public class ValidadorDeSenha {
 
 **Rode os testes de novo** (botão **Rerun** na janela *Test Results*). **Continuam verdes.**
 
-**Fale para a turma — esta é a frase mais importante da aula:**
-
-> Eu acabei de reescrever o método inteiro e mudei a forma de percorrer a String. Como eu sei que não quebrei nada? Porque os quatro testes continuam passando. **Sem os testes, essa refatoração seria um chute.** É isso que o TDD compra pra você.
+**Por que isso importa:** o método inteiro foi reescrito e a forma de percorrer a String mudou. Como saber que nada quebrou? Os quatro testes continuam passando. **Sem os testes, essa refatoração seria um chute.** É isso que o TDD garante.
 
 Repare também que o método `ehValida` agora **se lê como a regra de negócio**, quase em português.
 
-> 🛟 Travou? Commit **refactor: extrai metodos, remove flags e nomeia a constante** da branch `exemplo`.
-
 ---
 
-## Fechamento do exemplo (30 segundos)
+## O histórico conta a história
 
-Abra no navegador o [histórico de commits da branch `exemplo`](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/commits/exemplo) e mostre:
+No [histórico de commits da branch `exemplo`](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/commits/exemplo), cada ciclo virou um commit — dá para abrir qualquer um e ver o código exatamente como estava naquela etapa:
 
 ```
 refactor: extrai metodos, remove flags e nomeia a constante
@@ -233,15 +225,12 @@ ciclo 2: triangulacao derruba o return false
 ciclo 1: senha curta e invalida (fake it com return false)
 ```
 
-> O histórico do projeto virou a documentação de como a regra foi construída. E os testes são a especificação viva: qualquer pessoa que abrir `ValidadorDeSenhaTest` entende o que uma senha válida precisa ter, sem ler uma linha de implementação.
+O histórico do projeto virou a documentação de como a regra foi construída. E os testes são a especificação viva: qualquer pessoa que abrir `ValidadorDeSenhaTest` entende o que uma senha válida precisa ter, sem ler uma linha de implementação.
 
 ---
 
-## Se sobrar tempo — demonstração do "teste que salva"
+## Experimente — o teste que salva
 
-Vale muito fazer, é o momento em que a ficha cai:
-
-1. Peça um voluntário para sugerir uma "otimização" no código.
-2. Ou você mesmo introduza um bug de propósito: troque `>=` por `>` em `temTamanhoMinimo`.
-3. **Ctrl+S** e rode os testes. **Barra vermelha na hora** — clique no teste que falhou na janela *Test Results* e mostre que ele aponta exatamente qual regra quebrou.
-4. Desfaça. Verde de novo.
+1. Introduza um bug de propósito: troque `>=` por `>` em `temTamanhoMinimo`.
+2. **Ctrl+S** e rode os testes. **Barra vermelha na hora** — clique no teste que falhou na janela *Test Results*: ele aponta exatamente qual regra quebrou.
+3. Desfaça. Verde de novo.
