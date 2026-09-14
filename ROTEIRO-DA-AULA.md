@@ -4,12 +4,12 @@
 
 ## Antes de começar (faça hoje, antes da aula)
 
-- [ ] **Numa máquina do laboratório**, baixar o `exemplo-inicio.zip`, importar no Eclipse (`Existing Maven Projects`) e confirmar que aparece **Maven Dependencies** com o JUnit — é o teste de que a rede da faculdade deixa o Maven baixar. Se não deixar, ensaie o **Plano B** do `GUIA-ECLIPSE.md`
-- [ ] Conferir se o Eclipse do laboratório tem Java 17 (`Window > Preferences > Java > Installed JREs`)
-- [ ] Configurar o favorito `org.junit.jupiter.api.Assertions` no Eclipse de quem vai apresentar (`GUIA-ECLIPSE.md`, seção 6)
+- [ ] **Numa máquina do laboratório**, baixar o `exemplo.zip`, abrir no NetBeans (`File > Open Project`), rodar **Clean and Build** e depois **Test** — tem que dar `BUILD SUCCESS` e barra verde. É o teste de que a rede da faculdade deixa o Maven baixar. Se não deixar, prepare o **Plano B** do `GUIA-NETBEANS.md` (pendrive com a pasta `.m2`)
+- [ ] Conferir se o NetBeans do laboratório tem Java 17 (`Tools > Java Platforms`)
+- [ ] Ensaiar o **Alt+Enter** → `Create class ... (Source Packages)` no NetBeans do laboratório, para confirmar o nome exato da opção
 - [ ] Subir o repositório no GitHub e deixar o link curto pronto para projetar
 - [ ] Mandar para a turma os links dos ZIPs (tabela do `README.md`) e pedir para **baixar e importar antes da aula** — nada mata mais tempo do que 30 pessoas baixando o JUnit ao mesmo tempo no wi-fi da faculdade
-- [ ] Deixar o Eclipse aberto com fonte grande (**Ctrl+=**) e a aba **JUnit** visível (`Window > Show View > Other... > Java > JUnit`)
+- [ ] Deixar o NetBeans aberto com fonte grande (`Tools > Options > Fonts & Colors`) e a janela **Test Results** visível (`Window > IDE Tools > Test Results`)
 - [ ] Ter um plano B: se a internet cair, você ainda consegue fazer o exemplo ao vivo, porque suas dependências já estarão baixadas
 
 ---
@@ -77,10 +77,11 @@ Os três travamentos previsíveis e a resposta de cada um:
 | "Meu teste passou de primeira" | "Então ele não está testando nada novo. Ou a regra já estava implementada, ou o assert está errado. Quebre o código de propósito e veja se ele acusa." |
 | "Não sei o que testar primeiro" | "O caso mais simples que você conseguir imaginar. Se for boba demais, melhor ainda." |
 | "Posso implementar as 4 regras de uma vez?" | "Pode, mas aí não é TDD e você perde o ponto da aula. Faz uma, roda, faz a próxima." |
-| Erro de compilação no teste | Lembre que **isso é o vermelho**. A classe não existir já é feedback válido. Mostre o **Ctrl+1** → `Create class`. |
+| Erro de compilação no teste | Lembre que **isso é o vermelho**. A classe não existir já é feedback válido. Mostre o **Alt+Enter** → `Create class`. |
 | `assertEquals` sublinhado de vermelho | Falta `import static org.junit.jupiter.api.Assertions.*;` no topo da classe. |
-| Classe criada pelo Ctrl+1 foi parar em `src/test/java` | Funciona, mas está no lugar errado: arrastar para `src/main/java`. Na próxima, trocar o *Source folder* na janela. |
-| Projeto sem o JUnit (`import org.junit cannot be resolved`) | Botão direito no projeto → `Maven > Update Project` (Alt+F5). Sem internet: Plano B do `GUIA-ECLIPSE.md`. |
+| Classe criada pelo Alt+Enter foi parar em **Test Packages** | Funciona, mas está no lugar errado: arrastar para **Source Packages**. Na próxima, escolher a opção *(Source Packages)*. |
+| Método novo lança `UnsupportedOperationException` | É o padrão do NetBeans: trocar o `throw` por um `return` simples. |
+| Projeto sem o JUnit (`package org.junit.jupiter.api does not exist`) | Botão direito no projeto → **Clean and Build** com internet. Sem internet: Plano B do `GUIA-NETBEANS.md`. |
 
 ⚠️ **Combine entre vocês quem apresenta e quem circula pela sala.** Enquanto uma pessoa está no slide/código, a outra atende dúvidas individuais. Prática sem ninguém circulando trava.
 

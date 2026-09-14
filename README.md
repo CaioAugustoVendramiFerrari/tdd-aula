@@ -8,7 +8,7 @@ Esta branch (`main`) tem só o **conteúdo** da aula. O exemplo e os exercícios
 
 | Arquivo | Para quem |
 |---|---|
-| [`GUIA-ECLIPSE.md`](GUIA-ECLIPSE.md) | **Todos** — baixar, importar, criar e rodar testes no Eclipse |
+| [`GUIA-NETBEANS.md`](GUIA-NETBEANS.md) | **Todos** — baixar, abrir, criar e rodar testes no NetBeans |
 | [`GUIA-DE-ESTUDO.md`](GUIA-DE-ESTUDO.md) | **Alunos** — TDD em 20 minutos de leitura |
 | [`CHEATSHEET-JUNIT.md`](CHEATSHEET-JUNIT.md) | **Alunos** — colinha de JUnit 5 |
 | [`ROTEIRO-DA-AULA.md`](ROTEIRO-DA-AULA.md) | Apresentadores — cronometragem e falas |
@@ -26,21 +26,21 @@ Esta branch (`main`) tem só o **conteúdo** da aula. O exemplo e os exercícios
 > ⚠️ **As branches `exercicio-*` já trazem a resolução.**
 > Leia o `ENUNCIADO.md` e tente fazer **antes** de abrir o `GABARITO.md` e o código. Olhar a resposta antes tira justamente o que a aula quer treinar: escrever o teste primeiro e deixar ele guiar o código.
 
-## Como começar (Eclipse)
+## Como começar (NetBeans)
 
 1. Baixe o ZIP da branch na tabela acima e descompacte
-2. No Eclipse: `File > Import... > Maven > Existing Maven Projects` → escolha a pasta → **Finish**
-3. Espere o Maven baixar o JUnit (canto inferior direito — só na primeira vez)
-4. Botão direito na classe de teste → `Run As > JUnit Test`
+2. No NetBeans: `File > Open Project...` → selecione a pasta que tem o `pom.xml` → **Open Project**
+3. Botão direito no projeto → **Clean and Build** e espere o Maven baixar o JUnit (só na primeira vez, precisa de internet)
+4. Botão direito na classe de teste → **Test File** (**Ctrl+F6**)
 
-Cada branch vira um projeto próprio no Eclipse (`tdd-exemplo`, `tdd-exercicio-1`...), então dá para ter todos abertos no mesmo workspace.
+Cada branch vira um projeto próprio no NetBeans (`Aula de TDD - Exemplo`, `Aula de TDD - Exercicio 1`...), então dá para ter todos abertos ao mesmo tempo.
 
-O passo a passo completo, com os caminhos de menu, atalhos e o **plano B sem internet**, está no [`GUIA-ECLIPSE.md`](GUIA-ECLIPSE.md).
+O passo a passo completo, com os caminhos de menu, atalhos e o **plano B sem internet**, está no [`GUIA-NETBEANS.md`](GUIA-NETBEANS.md).
 
 ## Pré-requisitos
 
-- **Eclipse IDE for Java Developers** 2021-09 ou mais novo — já vem com Maven e JUnit 5, não precisa instalar biblioteca
-- **Java 17 ou superior** — confira em `Window > Preferences > Java > Installed JREs`
+- **Apache NetBeans** 17 ou mais novo — já vem com Maven e roda JUnit 5, não precisa instalar biblioteca
+- **Java 17 ou superior** — confira em `Tools > Java Platforms`
 - **Internet na primeira importação**, para o Maven baixar o JUnit
 
 ## O exemplo, ciclo a ciclo
@@ -68,7 +68,7 @@ src/main/java/br/edu/tdd/...      <- código de produção
 src/test/java/br/edu/tdd/...      <- os testes
 ```
 
-Por convenção do Maven, o teste de `CalculadoraDeFrete` fica em `CalculadoraDeFreteTest`, no **mesmo pacote**, mas dentro de `src/test/java`. É isso que permite ao teste enxergar a classe sem import.
+Por convenção do Maven, o teste de `CalculadoraDeFrete` fica em `CalculadoraDeFreteTest`, no **mesmo pacote**, mas dentro de `src/test/java` — no NetBeans, `src/main/java` aparece como **Source Packages** e `src/test/java` como **Test Packages**. É isso que permite ao teste enxergar a classe sem import.
 
 ## Quem prefere git
 
@@ -78,8 +78,8 @@ cd tdd-aula
 git checkout exercicio-1      # ou exemplo, exemplo-inicio, exercicio-2...
 ```
 
-Depois importe a pasta no Eclipse como `Existing Maven Projects`. Ao trocar de branch, rode `Maven > Update Project` (**Alt+F5**).
+Depois abra a pasta no NetBeans com `File > Open Project...`. Ao trocar de branch, rode **Clean and Build**.
 
 ## Problemas comuns
 
-Os problemas do Eclipse e as soluções estão no final do [`GUIA-ECLIPSE.md`](GUIA-ECLIPSE.md#problemas-comuns).
+Os problemas do NetBeans e as soluções estão no final do [`GUIA-NETBEANS.md`](GUIA-NETBEANS.md#problemas-comuns).

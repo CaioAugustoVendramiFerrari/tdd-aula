@@ -78,16 +78,17 @@ Inverter não quebra o teste, mas a mensagem de erro sai invertida e te faz perd
 No JUnit 5, *package-private* (sem modificador) é o padrão.
 
 **4. `assertEquals` sublinhado de vermelho? Falta o import estático**
-Confira se a linha `import static org.junit.jupiter.api.Assertions.*;` está no topo. O Eclipse não sugere esse import sozinho.
+Confira se a linha `import static org.junit.jupiter.api.Assertions.*;` está no topo. Sem ela, o NetBeans acusa `cannot find symbol`.
 
-## Rodando no Eclipse
+## Rodando no NetBeans
 
 | O que | Como |
 |---|---|
-| Rodar a classe de teste | Botão direito na classe → `Run As > JUnit Test` (ou **Alt+Shift+X**, depois **T**) |
-| Rodar um teste só | Clique no nome do método e use o mesmo atalho |
-| Rodar de novo | Botão **Rerun Test** na aba JUnit |
-| Criar a classe que o teste pede | Clique no nome sublinhado → **Ctrl+1** → `Create class` (troque o *Source folder* para `src/main/java`) |
-| Criar o método que o teste pede | Clique no método sublinhado → **Ctrl+1** → `Create method` |
+| Rodar a classe de teste | Botão direito no arquivo de teste → **Test File** (**Ctrl+F6**) |
+| Rodar um teste só | Botão direito dentro do método → **Run Focused Test Method** |
+| Rodar todos os testes | Botão direito no projeto → **Test** (**Alt+F6**) |
+| Rodar de novo | Botão **Rerun** na janela *Test Results* |
+| Criar a classe que o teste pede | Clique no nome sublinhado → **Alt+Enter** → `Create class ... (Source Packages)` |
+| Criar o método que o teste pede | Clique no método sublinhado → **Alt+Enter** → `Create method` — e troque o `throw new UnsupportedOperationException` por um `return` |
 
-Barra **vermelha** na aba JUnit: falhou. Barra **verde**: passou. Mais detalhes no `GUIA-ECLIPSE.md`.
+Barra **vermelha** na janela *Test Results*: falhou. Barra **verde**: passou. Mais detalhes no `GUIA-NETBEANS.md`.
