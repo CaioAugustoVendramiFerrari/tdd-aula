@@ -1,21 +1,28 @@
 package br.edu.tdd.exemplo;
 
+/**
+ * Resultado do exemplo construido ao vivo na aula.
+ * Veja PASSO-A-PASSO-EXEMPLO.md para os ciclos que levaram ate aqui.
+ */
 public class ValidadorDeSenha {
 
+    private static final int TAMANHO_MINIMO = 8;
+
     public boolean ehValida(String senha) {
-        if (senha.length() < 8) {
-            return false;
-        }
-        boolean temNumero = false;
-        boolean temMaiuscula = false;
-        for (char c : senha.toCharArray()) {
-            if (Character.isDigit(c)) {
-                temNumero = true;
-            }
-            if (Character.isUpperCase(c)) {
-                temMaiuscula = true;
-            }
-        }
-        return temNumero && temMaiuscula;
+        return temTamanhoMinimo(senha)
+                && temNumero(senha)
+                && temLetraMaiuscula(senha);
+    }
+
+    private boolean temTamanhoMinimo(String senha) {
+        return senha.length() >= TAMANHO_MINIMO;
+    }
+
+    private boolean temNumero(String senha) {
+        return senha.chars().anyMatch(Character::isDigit);
+    }
+
+    private boolean temLetraMaiuscula(String senha) {
+        return senha.chars().anyMatch(Character::isUpperCase);
     }
 }
