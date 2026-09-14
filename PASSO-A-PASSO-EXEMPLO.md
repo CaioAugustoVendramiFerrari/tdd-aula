@@ -14,8 +14,6 @@ Regras (não mostre todas de uma vez — revele uma por ciclo):
 1. Baixe o [ponto de partida em branco](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/tags/exemplo-inicio.zip) e descompacte
 2. `File > Import... > Maven > Existing Maven Projects` → escolha a pasta → **Finish**
 3. Confira que o projeto `tdd-exemplo` mostra **Maven Dependencies** com o JUnit
-4. Aumente a fonte (**Ctrl+=**) e deixe a aba **JUnit** visível (`Window > Show View > Other... > Java > JUnit`)
-5. Configure o favorito dos asserts: `Window > Preferences > Java > Editor > Content Assist > Favorites > New Type...` → `org.junit.jupiter.api.Assertions`
 
 Detalhes e problemas comuns no `GUIA-ECLIPSE.md` da branch `main`.
 
