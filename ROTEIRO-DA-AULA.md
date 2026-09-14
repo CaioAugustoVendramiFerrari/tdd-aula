@@ -62,6 +62,44 @@ Não venda TDD como bala de prata; o professor vai gostar disso:
 
 > "TDD não é obrigatório e não serve para tudo. Em protótipo descartável, em código muito acoplado a UI, ou quando você ainda não sabe qual é o problema, ele atrapalha mais do que ajuda."
 
+### No exemplo ao vivo (slide 17)
+
+O código e os passos estão no `PASSO-A-PASSO-EXEMPLO.md` da branch `exemplo`. As falas ficam aqui.
+
+**Antes de começar:** não mostre as 4 regras de uma vez — revele uma por ciclo.
+
+**Ciclo 1, depois de escrever o teste** (o NetBeans sublinha `ValidadorDeSenha` de vermelho):
+
+> "Repare que a classe `ValidadorDeSenha` ainda não existe. O projeto nem compila. Isso **já é o vermelho** — o teste está dizendo o que falta construir."
+
+**Ciclo 1, depois do `return false`:**
+
+> "Sim, `return false` é trapaça. E está certo. No TDD isso tem nome: *fake it till you make it*. A gente escreve a coisa mais boba que faz o teste passar; é o **próximo teste** que vai nos obrigar a escrever o código de verdade. Isso garante que nenhuma linha de código exista sem um teste que a justifique."
+
+**Ciclo 2, quando os dois testes passam:**
+
+> "Essa técnica de escrever um segundo caso para forçar a generalização se chama **triangulação**. Um ponto não define uma reta; dois definem."
+
+**Refactor — a frase mais importante da aula:**
+
+> "Eu acabei de reescrever o método inteiro e mudei a forma de percorrer a String. Como eu sei que não quebrei nada? Porque os quatro testes continuam passando. **Sem os testes, essa refatoração seria um chute.** É isso que o TDD compra pra você."
+
+**Fechamento do exemplo (30 s):** abra o [histórico de commits da branch `exemplo`](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/commits/exemplo) e diga:
+
+> "O histórico do projeto virou a documentação de como a regra foi construída. E os testes são a especificação viva: qualquer pessoa que abrir `ValidadorDeSenhaTest` entende o que uma senha válida precisa ter, sem ler uma linha de implementação."
+
+**Se sobrar tempo — o "teste que salva"** (é o momento em que a ficha cai): peça um voluntário para sugerir uma "otimização", ou troque você mesmo `>=` por `>` em `temTamanhoMinimo`. Rode, mostre a barra vermelha apontando a regra quebrada, desfaça.
+
+**🛟 Travou no meio do exemplo?** Cada ciclo pronto está num commit da branch `exemplo`. Abra o histórico acima, clique no commit do ciclo em que parou e copie o código:
+
+| Parou em | Commit |
+|---|---|
+| Ciclo 1 | `ciclo 1: senha curta e invalida (fake it com return false)` |
+| Ciclo 2 | `ciclo 2: triangulacao derruba o return false` |
+| Ciclo 3 | `ciclo 3: exige numero` |
+| Ciclo 4 | `ciclo 4: exige maiuscula` |
+| Refactor | `refactor: extrai metodos, remove flags e nomeia a constante` |
+
 ### Transição para a prática
 
 > "Agora vocês. Só uma regra: **nenhuma linha de implementação antes de um teste vermelho.** Se der vontade de adiantar, segura."
@@ -84,6 +122,31 @@ Os três travamentos previsíveis e a resposta de cada um:
 | Projeto sem o JUnit (`package org.junit.jupiter.api does not exist`) | Botão direito no projeto → **Clean and Build** com internet. Sem internet: Plano B do `GUIA-NETBEANS.md`. |
 
 ⚠️ **Combine entre vocês quem apresenta e quem circula pela sala.** Enquanto uma pessoa está no slide/código, a outra atende dúvidas individuais. Prática sem ninguém circulando trava.
+
+---
+
+## Na correção (75–85 min)
+
+O `GABARITO.md` de cada branch `exercicio-*` tem a solução e os pontos de atenção. A condução fica aqui.
+
+**Formato:** projete a tela, abra o exercício e **peça para a turma ditar o próximo teste** antes de mostrar o código. A correção rende muito mais como conversa do que como leitura.
+
+**Exercício 1 — Calculadora de Frete**
+- "Quem começou com `return 10.0` e se sentiu culpado? Levante a mão." → Isso é TDD correto, não preguiça.
+- "Alguém testou 5 kg exatos?" → Se ninguém testou, acrescente o caso ali na hora, troque `<=` por `<` e mostre o efeito.
+
+**Exercício 2 — Carrinho de Compras**
+- A regra 5 é a estrela da aula. Pergunte: *"quem escreveu `>=` no primeiro impulso?"* O teste de borda pegou.
+- Vale dizer explicitamente que aqui não precisou de mock, porque não há dependência externa.
+
+**Exercício 3 — Conta Bancária**
+- Pergunte o que acontece com `sacar(-50)` se a validação de saldo vier antes da de valor negativo.
+
+**Encerramento da correção (2 min)** — três perguntas para a turma, nessa ordem:
+
+1. **"Quantos de vocês usaram o debugger hoje?"** (Quase ninguém. Com ciclos curtos, o erro está sempre no que você acabou de escrever.)
+2. **"Alguém mudou de ideia sobre uma regra depois de escrever o teste?"** (Quase sempre alguém mudou. O teste força a especificar antes de codar — é aí que a ambiguidade aparece.)
+3. **"Se eu pedir agora para vocês trocarem `ArrayList` por outra estrutura, vocês teriam coragem?"** (Teriam. Porque é só apertar **Ctrl+F6** e olhar a barra. **Isso** é o produto final do TDD.)
 
 ---
 

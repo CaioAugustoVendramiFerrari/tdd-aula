@@ -11,14 +11,13 @@ Esta branch (`main`) tem só o **conteúdo** da aula. O exemplo e os exercícios
 | [`GUIA-NETBEANS.md`](GUIA-NETBEANS.md) | **Todos** — baixar, abrir, criar e rodar testes no NetBeans |
 | [`GUIA-DE-ESTUDO.md`](GUIA-DE-ESTUDO.md) | **Alunos** — TDD em 20 minutos de leitura |
 | [`CHEATSHEET-JUNIT.md`](CHEATSHEET-JUNIT.md) | **Alunos** — colinha de JUnit 5 |
-| [`ROTEIRO-DA-AULA.md`](ROTEIRO-DA-AULA.md) | Apresentadores — cronometragem e falas |
 
 ## Branches
 
 | Branch | O que tem | Baixar |
 |---|---|---|
 | `main` | Conteúdo da aula (você está aqui) | — |
-| `exemplo` | Exemplo ao vivo do Validador de Senha — um commit por ciclo + `PASSO-A-PASSO-EXEMPLO.md` | [início em branco](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/tags/exemplo-inicio.zip) · [completo](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/heads/exemplo.zip) |
+| `exemplo` | Exemplo do Validador de Senha — um commit por ciclo + `PASSO-A-PASSO-EXEMPLO.md` | [início em branco](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/tags/exemplo-inicio.zip) · [completo](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/heads/exemplo.zip) |
 | `exercicio-1` | Calculadora de Frete — enunciado, resolução e gabarito | [ZIP](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/heads/exercicio-1.zip) |
 | `exercicio-2` | Carrinho de Compras — enunciado, resolução e gabarito | [ZIP](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/heads/exercicio-2.zip) |
 | `exercicio-3` | Conta Bancária (desafio) — enunciado, resolução e gabarito | [ZIP](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/heads/exercicio-3.zip) |
@@ -56,7 +55,7 @@ ciclo 1: senha curta e invalida (fake it com return false)
 exemplo: ponto de partida          <- tag exemplo-inicio
 ```
 
-Se travar durante a apresentação, abra o commit do ciclo em que parou e copie o código de lá. Depois da aula, a branch também serve para os alunos revisarem.
+Abra qualquer commit para ver o código exatamente como estava naquele ciclo.
 
 ## Estrutura de uma branch de exercício
 

@@ -1,6 +1,6 @@
 # Guia de estudo rápido — TDD em 20 minutos
 
-> Leia isto antes da aula. É o mínimo para você apresentar com segurança e aguentar as perguntas. O que já está nos seus slides eu não repito aqui — este guia cobre o que **falta** para você se sentir dono do assunto.
+> Um resumo do que vale saber sobre TDD: a ideia central, o ciclo, as confusões mais comuns e as perguntas que sempre aparecem.
 
 ---
 
@@ -8,7 +8,7 @@
 
 **O teste não é uma conferência depois do fato. É a especificação, escrita antes, numa linguagem que o computador consegue verificar.**
 
-Se você entender só isso, já dá para apresentar. Todo o resto é consequência.
+Se você entender só isso, já entendeu TDD. Todo o resto é consequência.
 
 A inversão é essa:
 
@@ -20,9 +20,9 @@ A inversão é essa:
 
 ---
 
-## 2. O ciclo, com a parte que os slides não contam
+## 2. O ciclo, além do Red / Green / Refactor
 
-Seus slides já explicam Red / Green / Refactor. O que costuma faltar e vale você saber:
+O básico é Red → Green → Refactor. O que costuma faltar e vale saber:
 
 ### O tamanho do ciclo
 
@@ -57,7 +57,7 @@ Teste unitário é *o que* você escreve. TDD é *quando* e *por quê*. Você po
 
 ### "Escrever testes antes" ≠ "escrever todos os testes antes"
 
-Não é escrever a suíte inteira e depois implementar tudo. É **um teste por vez**. Essa confusão é a mais comum da turma.
+Não é escrever a suíte inteira e depois implementar tudo. É **um teste por vez**. Essa é a confusão mais comum.
 
 ### TDD não garante que o software está correto
 
@@ -69,7 +69,7 @@ Garante que ele faz o que **você especificou**. Se você entendeu a regra errad
 
 ---
 
-## 4. Vocabulário para não travar
+## 4. Vocabulário
 
 | Termo | O que é |
 |---|---|
@@ -84,23 +84,23 @@ Garante que ele faz o que **você especificou**. Se você entendeu a regra errad
 
 ---
 
-## 5. Se alguém te encurralar
+## 5. Perguntas que sempre aparecem
 
 **"Isso não é overengineering?"**
-Pode ser, em protótipo descartável ou script de uso único. Reconheça. Em código que vai ser mantido por mais de algumas semanas, o custo se paga. Assumir o limite da técnica te dá mais credibilidade do que defender ela até a morte.
+Pode ser, em protótipo descartável ou script de uso único. Reconheça. Em código que vai ser mantido por mais de algumas semanas, o custo se paga.
 
 **"E se o requisito mudar? Aí tenho que mexer no teste e no código."**
 Sim, e isso é o comportamento correto. O teste falhar quando a regra muda é o sistema funcionando. O que você não quer é o teste **continuar passando** depois de uma mudança de regra — isso significa que ele nunca testou a regra.
 
 **"Testes não dão trabalho de manter?"**
-Dão. É um custo real, e está nos seus slides de desvantagens. O argumento é de balanço: você troca manutenção de testes por horas de debug e bugs em produção.
+Dão. É um custo real, e uma das desvantagens do TDD. O argumento é de balanço: você troca manutenção de testes por horas de debug e bugs em produção.
 
 **"Por que você testou 5 kg exatos se já testou 3 e 7?"**
-Porque `< 5` e `<= 5` produzem resultados diferentes exatamente ali, e em nenhum outro ponto. É a resposta que mostra que você entendeu teste de valor limite.
+Porque `< 5` e `<= 5` produzem resultados diferentes exatamente ali, e em nenhum outro ponto. Esse é o conceito de teste de valor limite.
 
 ---
 
-## 6. Checagem final — você está pronto se consegue responder sem olhar
+## 6. Teste seu entendimento — responda sem olhar
 
 1. Por que o teste **precisa** falhar antes de você implementar?
 2. O que é "fake it" e por que não é trapaça?
