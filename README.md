@@ -55,12 +55,25 @@ Por convenção do Maven, o teste de `CalculadoraDeFrete` fica em `CalculadoraDe
 | Branch | Conteúdo |
 |---|---|
 | `main` | Exercícios em branco — é aqui que os alunos trabalham |
-| `gabarito` | Exemplo e exercícios resolvidos — usado na correção |
+| `exemplo-passo-a-passo` | Um commit por ciclo do exemplo da aula (rede de segurança do apresentador) |
+| `gabarito` | Exemplo e exercícios resolvidos + `GABARITO.md` — usado na correção |
 
 ```bash
 git checkout gabarito    # ver as soluções
 git checkout main        # voltar
 ```
+
+A branch `exemplo-passo-a-passo` tem o histórico do exemplo construído ao vivo, um commit por etapa:
+
+```
+refactor: extrai metodos, remove flags e nomeia a constante
+ciclo 4: exige maiuscula
+ciclo 3: exige numero
+ciclo 2: triangulacao derruba o return false
+ciclo 1: senha curta e invalida (fake it com return false)
+```
+
+Se travar durante a apresentação, `git checkout exemplo-passo-a-passo` e caminhe pelos commits. Depois da aula, ela também serve para os alunos revisarem.
 
 ## Problemas comuns
 
