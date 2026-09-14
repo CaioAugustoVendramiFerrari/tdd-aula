@@ -99,14 +99,4 @@ import static org.junit.jupiter.api.Assertions.*;
 | `No tests executed` | A classe de teste precisa estar em **Test Packages** e o nome precisa terminar em `Test` |
 | A classe de produção apareceu em **Test Packages** | Funciona, mas está no lugar errado. Arraste para o mesmo pacote em **Source Packages** e confirme o *Move* |
 | O método criado pelo Alt+Enter lança `UnsupportedOperationException` | É o padrão do NetBeans. Troque o `throw` por um `return` |
-
-## Plano B — sem internet no laboratório
-
-O NetBeans usa o Maven para compilar e rodar os testes, e o Maven precisa baixar o JUnit e os plugins na primeira vez. Tudo fica guardado na pasta `.m2` do usuário. Se o laboratório não tiver internet:
-
-1. Numa máquina **com** internet, abra o projeto e rode **Clean and Build** e **Test** uma vez
-2. Copie a pasta `C:\Users\<seu-usuario>\.m2\repository` para um pendrive
-3. Na máquina do laboratório, cole em `C:\Users\<usuario-do-laboratorio>\.m2\repository` (crie a pasta `.m2` se não existir)
-4. Abra o projeto e rode **Clean and Build** — agora sem precisar baixar nada
-
 💡 **Prevenção:** abra o projeto e rode **Test** numa máquina do laboratório **antes da aula**. Se funcionar, o JUnit fica guardado nessa máquina.
