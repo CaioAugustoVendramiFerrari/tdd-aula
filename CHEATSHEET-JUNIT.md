@@ -77,11 +77,17 @@ Inverter não quebra o teste, mas a mensagem de erro sai invertida e te faz perd
 **3. A classe e os métodos de teste não precisam ser `public`**
 No JUnit 5, *package-private* (sem modificador) é o padrão.
 
-## Rodando
+**4. `assertEquals` sublinhado de vermelho? Falta o import estático**
+Confira se a linha `import static org.junit.jupiter.api.Assertions.*;` está no topo. O Eclipse não sugere esse import sozinho.
 
-```bash
-mvn test                                  # roda tudo
-mvn test -Dtest=CalculadoraDeFreteTest    # roda só uma classe
-```
+## Rodando no Eclipse
 
-Na IDE: clique na setinha ▶ ao lado do nome da classe ou do método.
+| O que | Como |
+|---|---|
+| Rodar a classe de teste | Botão direito na classe → `Run As > JUnit Test` (ou **Alt+Shift+X**, depois **T**) |
+| Rodar um teste só | Clique no nome do método e use o mesmo atalho |
+| Rodar de novo | Botão **Rerun Test** na aba JUnit |
+| Criar a classe que o teste pede | Clique no nome sublinhado → **Ctrl+1** → `Create class` (troque o *Source folder* para `src/main/java`) |
+| Criar o método que o teste pede | Clique no método sublinhado → **Ctrl+1** → `Create method` |
+
+Barra **vermelha** na aba JUnit: falhou. Barra **verde**: passou. Mais detalhes no `GUIA-ECLIPSE.md`.
