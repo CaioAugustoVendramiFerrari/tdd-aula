@@ -4,7 +4,7 @@
 
 ## Antes de começar (faça hoje, antes da aula)
 
-- [ ] Rodar `mvn test` na sua máquina e confirmar que o vermelho aparece
+- [ ] Na sua máquina, `git checkout exemplo-inicio` e `mvn test` — confirmar que o Maven baixa o JUnit e compila
 - [ ] Subir o repositório no GitHub e deixar o link curto pronto para projetar
 - [ ] Avisar a turma para **clonar antes da aula** — nada mata mais tempo do que 30 pessoas baixando o JUnit ao mesmo tempo no wi-fi da faculdade
 - [ ] Deixar a IDE aberta com fonte grande (Ctrl+Scroll) e o painel de testes visível
@@ -21,9 +21,9 @@
 | 8–16 min | O ciclo | 6–10 | Red, Green, Refactor + o diagrama |
 | 16–22 min | Quando usar | 11–13 | Vantagens |
 | 22–27 min | Quando não usar | 14–16 | Desvantagens — dá credibilidade, não pule |
-| **27–45 min** | **Exemplo ao vivo** | 17 | `PASSO-A-PASSO-EXEMPLO.md` |
-| **45–75 min** | **Prática** | 18 | `ENUNCIADOS.md` |
-| **75–85 min** | **Correção** | — | `GABARITO.md` |
+| **27–45 min** | **Exemplo ao vivo** | 17 | branch `exemplo` → `PASSO-A-PASSO-EXEMPLO.md` |
+| **45–75 min** | **Prática** | 18 | branches `exercicio-*` → `ENUNCIADO.md` |
+| **75–85 min** | **Correção** | — | branches `exercicio-*` → `GABARITO.md` |
 | 85–90 min | Fechamento | — | Recado final |
 
 *(Se o slot for de 60 min: teoria em 20, exemplo em 15, prática em 18, correção em 7.)*
