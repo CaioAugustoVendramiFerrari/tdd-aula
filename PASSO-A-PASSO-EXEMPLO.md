@@ -9,13 +9,13 @@ Regras (não mostre todas de uma vez — revele uma por ciclo):
 
 ---
 
-## Antes de começar — preparar o Eclipse
+## Antes de começar — preparar o NetBeans
 
 1. Baixe o [ponto de partida em branco](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/tags/exemplo-inicio.zip) e descompacte
-2. `File > Import... > Maven > Existing Maven Projects` → escolha a pasta → **Finish**
-3. Confira que o projeto `tdd-exemplo` mostra **Maven Dependencies** com o JUnit
+2. `File > Open Project...` → selecione a pasta que tem o `pom.xml` → **Open Project**
+3. Botão direito no projeto `Aula de TDD - Exemplo` → **Clean and Build** → espere o `BUILD SUCCESS` (baixa o JUnit na primeira vez)
 
-Detalhes e problemas comuns no `GUIA-ECLIPSE.md` da branch `main`.
+Detalhes e problemas comuns no `GUIA-NETBEANS.md` da branch `main`.
 
 ---
 
@@ -23,9 +23,9 @@ Detalhes e problemas comuns no `GUIA-ECLIPSE.md` da branch `main`.
 
 ### 🔴 RED — escreva só o teste
 
-No Eclipse: botão direito em `src/test/java` → `New > JUnit Test Case` → marque **New JUnit Jupiter test** → **Package:** `br.edu.tdd.exemplo` → **Name:** `ValidadorDeSenhaTest` → **Finish**.
+No NetBeans: em **Test Packages**, botão direito no pacote `br.edu.tdd.exemplo` → `New > Java Class...` → **Class Name:** `ValidadorDeSenhaTest` → **Finish**.
 
-Apague o método `test()` que o Eclipse gerou e digite:
+Apague o que o NetBeans gerou e digite:
 
 ```java
 package br.edu.tdd.exemplo;
@@ -49,10 +49,10 @@ class ValidadorDeSenhaTest {
 
 Deixe o próprio teste criar a classe:
 
-1. Clique em `ValidadorDeSenha` (sublinhado) → **Ctrl+1** → `Create class 'ValidadorDeSenha'`
-2. ⚠️ Na janela, troque **Source folder** para `tdd-exemplo/src/main/java` — o Eclipse sugere `src/test/java` → **Finish**
-3. Volte ao teste, clique em `ehValida` (sublinhado) → **Ctrl+1** → `Create method 'ehValida(String)'`
-4. Renomeie o parâmetro para `senha` e apague o comentário `// TODO`. O Eclipse já criou com `return false;`
+1. Clique em `ValidadorDeSenha` (sublinhado) → **Alt+Enter** → `Create class "ValidadorDeSenha" in package br.edu.tdd.exemplo` **(Source Packages)**
+2. ⚠️ Confira que é a opção **Source Packages**, não *Test Packages*. Se só aparecer *Test Packages*: em **Source Packages**, botão direito no pacote → `New > Java Class...`
+3. Volte ao teste, clique em `ehValida` (sublinhado) → **Alt+Enter** → `Create method "ehValida(java.lang.String)"`
+4. O NetBeans cria o método com `throw new UnsupportedOperationException("Not supported yet.");` — troque por `return false;` e renomeie o parâmetro para `senha`
 5. **Ctrl+S** nos dois arquivos
 
 Fica assim:
@@ -68,7 +68,7 @@ public class ValidadorDeSenha {
 }
 ```
 
-Rode: botão direito no teste → `Run As > JUnit Test` (**Alt+Shift+X**, depois **T**). **Barra verde.**
+Rode: botão direito no arquivo de teste → **Test File** (**Ctrl+F6**). **Barra verde** na janela *Test Results*.
 
 
 ---
@@ -86,7 +86,7 @@ Rode: botão direito no teste → `Run As > JUnit Test` (**Alt+Shift+X**, depois
     }
 ```
 
-(adicione `import static org.junit.jupiter.api.Assertions.assertTrue;` — com o favorito configurado, basta clicar em `assertTrue` e apertar **Ctrl+1**)
+(adicione `import static org.junit.jupiter.api.Assertions.assertTrue;` no topo — sem ele o NetBeans acusa `cannot find symbol`)
 
 Rode: o teste novo falha. **O `return false` foi desmascarado pelo segundo teste.**
 
@@ -209,7 +209,7 @@ public class ValidadorDeSenha {
 }
 ```
 
-**Rode os testes de novo** (botão **Rerun Test** na aba JUnit). **Continuam verdes.**
+**Rode os testes de novo** (botão **Rerun** na janela *Test Results*). **Continuam verdes.**
 
 **Fale para a turma — esta é a frase mais importante da aula:**
 
@@ -243,5 +243,5 @@ Vale muito fazer, é o momento em que a ficha cai:
 
 1. Peça um voluntário para sugerir uma "otimização" no código.
 2. Ou você mesmo introduza um bug de propósito: troque `>=` por `>` em `temTamanhoMinimo`.
-3. **Ctrl+S** e rode os testes. **Barra vermelha na hora** — clique no teste que falhou na aba JUnit e mostre que ele aponta exatamente qual regra quebrou.
+3. **Ctrl+S** e rode os testes. **Barra vermelha na hora** — clique no teste que falhou na janela *Test Results* e mostre que ele aponta exatamente qual regra quebrou.
 4. Desfaça. Verde de novo.
