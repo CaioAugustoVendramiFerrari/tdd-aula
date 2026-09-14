@@ -1,8 +1,4 @@
-# Gabarito comentado — correção dos exercícios
-
-> Uso sugerido: projete a tela, abra o exercício e **peça para a turma ditar o próximo teste** antes de mostrar o código. A correção rende muito mais como conversa do que como leitura.
-
----
+# Gabarito comentado
 
 ## Exercício 2 — Carrinho de Compras
 
@@ -93,9 +89,9 @@ public class CarrinhoDeCompras {
     }
 ```
 
-### 🎯 Pontos para puxar na correção
+### 🎯 Pontos de atenção
 
-- **A regra 5 é a estrela da aula.** Pergunte: *quem escreveu `>=` no primeiro impulso?* O teste de borda pegou. Sem TDD, esse bug iria para produção e só apareceria com um cliente reclamando de um desconto indevido.
+- **A regra 5 é a mais importante do exercício.** Escrever `>=` no primeiro impulso é muito comum — e o teste de borda pega. Sem TDD, esse bug iria para produção e só apareceria com um cliente reclamando de um desconto indevido.
 - **`getTotalComDesconto` chama `getTotal`.** Um método reaproveitando o outro só é seguro porque `getTotal` já tem teste próprio.
 - **`temDireitoADesconto` é um método privado que ninguém testa diretamente** — e está tudo bem. Testamos o comportamento público, não a estrutura interna. Se testássemos cada método privado, não poderíamos mais refatorar.
-- **Aparece aqui o conceito de *test double*?** Não, e vale dizer isso: nesses exercícios não precisamos de mock porque não há dependência externa (banco, API). Mock entra quando existe uma dependência lenta ou imprevisível.
+- **Aparece aqui o conceito de *test double*?** Não: nesses exercícios não precisamos de mock porque não há dependência externa (banco, API). Mock entra quando existe uma dependência lenta ou imprevisível.
