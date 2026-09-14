@@ -1,13 +1,6 @@
-# Exemplo ao vivo — Validador de Senha
+# Exemplo passo a passo — Validador de Senha
 
-> Este é o roteiro do **Parte 5: Exemplos**. A ideia é digitar o código na frente da turma, um ciclo por vez, projetando a tela. Cada ciclo já está salvo como um commit na branch `exemplo` do GitHub — é a sua rede de segurança se travar.
-
-**Tempo estimado:** 15 a 20 minutos.
-**O que a turma precisa ver:** a barra vermelha aparecendo antes de cada implementação.
-
-**Problema:** implementar uma classe que valida se uma senha é aceitável.
-
-Regras (não mostre todas de uma vez — revele uma por ciclo):
+O objetivo é construir, com TDD, uma classe que valida senhas. As regras são implementadas **uma por ciclo**:
 
 1. Senha com menos de 8 caracteres é inválida
 2. Senha com 8 ou mais caracteres é válida
@@ -16,15 +9,13 @@ Regras (não mostre todas de uma vez — revele uma por ciclo):
 
 ---
 
-## Antes de começar — preparar o Eclipse
+## Antes de começar — preparar o NetBeans
 
 1. Baixe o [ponto de partida em branco](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/archive/refs/tags/exemplo-inicio.zip) e descompacte
-2. `File > Import... > Maven > Existing Maven Projects` → escolha a pasta → **Finish**
-3. Confira que o projeto `tdd-exemplo` mostra **Maven Dependencies** com o JUnit
-4. Aumente a fonte (**Ctrl+=**) e deixe a aba **JUnit** visível (`Window > Show View > Other... > Java > JUnit`)
-5. Configure o favorito dos asserts: `Window > Preferences > Java > Editor > Content Assist > Favorites > New Type...` → `org.junit.jupiter.api.Assertions`
+2. `File > Open Project...` → selecione a pasta que tem o `pom.xml` → **Open Project**
+3. Botão direito no projeto `Aula de TDD - Exemplo` → **Clean and Build** → espere o `BUILD SUCCESS` (baixa o JUnit na primeira vez)
 
-Detalhes e problemas comuns no `GUIA-ECLIPSE.md` da branch `main`.
+Detalhes e problemas comuns no `GUIA-NETBEANS.md` da branch `main`.
 
 ---
 
@@ -32,9 +23,9 @@ Detalhes e problemas comuns no `GUIA-ECLIPSE.md` da branch `main`.
 
 ### 🔴 RED — escreva só o teste
 
-No Eclipse: botão direito em `src/test/java` → `New > JUnit Test Case` → marque **New JUnit Jupiter test** → **Package:** `br.edu.tdd.exemplo` → **Name:** `ValidadorDeSenhaTest` → **Finish**.
+No NetBeans: em **Test Packages**, botão direito no pacote `br.edu.tdd.exemplo` → `New > Java Class...` → **Class Name:** `ValidadorDeSenhaTest` → **Finish**.
 
-Apague o método `test()` que o Eclipse gerou e digite:
+Apague o que o NetBeans gerou e digite:
 
 ```java
 package br.edu.tdd.exemplo;
@@ -53,16 +44,15 @@ class ValidadorDeSenhaTest {
 }
 ```
 
-**Fale para a turma:** repare que a classe `ValidadorDeSenha` ainda não existe. O Eclipse sublinha o nome de vermelho: o projeto nem compila. Isso **já é o vermelho** — o teste está dizendo o que falta construir.
 
 ### 🟢 GREEN — o mínimo para passar
 
-Deixe o próprio teste criar a classe, na frente da turma:
+Deixe o próprio teste criar a classe:
 
-1. Clique em `ValidadorDeSenha` (sublinhado) → **Ctrl+1** → `Create class 'ValidadorDeSenha'`
-2. ⚠️ Na janela, troque **Source folder** para `tdd-exemplo/src/main/java` — o Eclipse sugere `src/test/java` → **Finish**
-3. Volte ao teste, clique em `ehValida` (sublinhado) → **Ctrl+1** → `Create method 'ehValida(String)'`
-4. Renomeie o parâmetro para `senha` e apague o comentário `// TODO`. O Eclipse já criou com `return false;`
+1. Clique em `ValidadorDeSenha` (sublinhado) → **Alt+Enter** → `Create class "ValidadorDeSenha" in package br.edu.tdd.exemplo` **(Source Packages)**
+2. ⚠️ Confira que é a opção **Source Packages**, não *Test Packages*. Se só aparecer *Test Packages*: em **Source Packages**, botão direito no pacote → `New > Java Class...`
+3. Volte ao teste, clique em `ehValida` (sublinhado) → **Alt+Enter** → `Create method "ehValida(java.lang.String)"`
+4. O NetBeans cria o método com `throw new UnsupportedOperationException("Not supported yet.");` — troque por `return false;` e renomeie o parâmetro para `senha`
 5. **Ctrl+S** nos dois arquivos
 
 Fica assim:
@@ -78,11 +68,8 @@ public class ValidadorDeSenha {
 }
 ```
 
-Rode: botão direito no teste → `Run As > JUnit Test` (**Alt+Shift+X**, depois **T**). **Barra verde.**
+Rode: botão direito no arquivo de teste → **Test File** (**Ctrl+F6**). **Barra verde** na janela *Test Results*.
 
-**Fale para a turma:** sim, `return false` é trapaça — e repare que nem fui eu que escrevi, foi o Eclipse. E está certo. No TDD isso tem nome: *fake it till you make it*. Escrevemos a coisa mais boba que faz o teste passar; é o **próximo teste** que vai nos obrigar a escrever o código de verdade. Isso garante que nenhuma linha de código exista sem um teste que a justifique.
-
-> 🛟 Travou? Este ciclo pronto está no commit **ciclo 1: senha curta e invalida (fake it com return false)** da branch `exemplo`.
 
 ---
 
@@ -99,7 +86,7 @@ Rode: botão direito no teste → `Run As > JUnit Test` (**Alt+Shift+X**, depois
     }
 ```
 
-(adicione `import static org.junit.jupiter.api.Assertions.assertTrue;` — com o favorito configurado, basta clicar em `assertTrue` e apertar **Ctrl+1**)
+(adicione `import static org.junit.jupiter.api.Assertions.assertTrue;` no topo — sem ele o NetBeans acusa `cannot find symbol`)
 
 Rode: o teste novo falha. **O `return false` foi desmascarado pelo segundo teste.**
 
@@ -112,10 +99,6 @@ Rode: o teste novo falha. **O `return false` foi desmascarado pelo segundo teste
 ```
 
 Rode: **os dois** testes passam.
-
-**Fale para a turma:** essa técnica de escrever um segundo caso para forçar a generalização se chama **triangulação**. Um ponto não define uma reta; dois definem.
-
-> 🛟 Travou? Commit **ciclo 2: triangulacao derruba o return false** da branch `exemplo`.
 
 ---
 
@@ -150,8 +133,6 @@ Falha: hoje `"Abcdefgh"` tem 8 caracteres, então passa pela validação atual.
         return temNumero;
     }
 ```
-
-> 🛟 Travou? Commit **ciclo 3: exige numero** da branch `exemplo`.
 
 ---
 
@@ -191,8 +172,6 @@ Falha: hoje `"Abcdefgh"` tem 8 caracteres, então passa pela validação atual.
 
 Quatro testes verdes. **Mas olhe para esse método.** Ele está feio: faz três coisas ao mesmo tempo, tem flags soltas, e para entender a regra você precisa ler o laço inteiro.
 
-> 🛟 Travou? Commit **ciclo 4: exige maiuscula** da branch `exemplo`.
-
 ---
 
 ## 🔵 REFACTOR — a etapa que todo mundo pula
@@ -226,21 +205,17 @@ public class ValidadorDeSenha {
 }
 ```
 
-**Rode os testes de novo** (botão **Rerun Test** na aba JUnit). **Continuam verdes.**
+**Rode os testes de novo** (botão **Rerun** na janela *Test Results*). **Continuam verdes.**
 
-**Fale para a turma — esta é a frase mais importante da aula:**
-
-> Eu acabei de reescrever o método inteiro e mudei a forma de percorrer a String. Como eu sei que não quebrei nada? Porque os quatro testes continuam passando. **Sem os testes, essa refatoração seria um chute.** É isso que o TDD compra pra você.
+**Por que isso importa:** o método inteiro foi reescrito e a forma de percorrer a String mudou. Como saber que nada quebrou? Os quatro testes continuam passando. **Sem os testes, essa refatoração seria um chute.** É isso que o TDD garante.
 
 Repare também que o método `ehValida` agora **se lê como a regra de negócio**, quase em português.
 
-> 🛟 Travou? Commit **refactor: extrai metodos, remove flags e nomeia a constante** da branch `exemplo`.
-
 ---
 
-## Fechamento do exemplo (30 segundos)
+## O histórico conta a história
 
-Abra no navegador o [histórico de commits da branch `exemplo`](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/commits/exemplo) e mostre:
+No [histórico de commits da branch `exemplo`](https://github.com/CaioAugustoVendramiFerrari/tdd-aula/commits/exemplo), cada ciclo virou um commit — dá para abrir qualquer um e ver o código exatamente como estava naquela etapa:
 
 ```
 refactor: extrai metodos, remove flags e nomeia a constante
@@ -250,15 +225,12 @@ ciclo 2: triangulacao derruba o return false
 ciclo 1: senha curta e invalida (fake it com return false)
 ```
 
-> O histórico do projeto virou a documentação de como a regra foi construída. E os testes são a especificação viva: qualquer pessoa que abrir `ValidadorDeSenhaTest` entende o que uma senha válida precisa ter, sem ler uma linha de implementação.
+O histórico do projeto virou a documentação de como a regra foi construída. E os testes são a especificação viva: qualquer pessoa que abrir `ValidadorDeSenhaTest` entende o que uma senha válida precisa ter, sem ler uma linha de implementação.
 
 ---
 
-## Se sobrar tempo — demonstração do "teste que salva"
+## Experimente — o teste que salva
 
-Vale muito fazer, é o momento em que a ficha cai:
-
-1. Peça um voluntário para sugerir uma "otimização" no código.
-2. Ou você mesmo introduza um bug de propósito: troque `>=` por `>` em `temTamanhoMinimo`.
-3. **Ctrl+S** e rode os testes. **Barra vermelha na hora** — clique no teste que falhou na aba JUnit e mostre que ele aponta exatamente qual regra quebrou.
-4. Desfaça. Verde de novo.
+1. Introduza um bug de propósito: troque `>=` por `>` em `temTamanhoMinimo`.
+2. **Ctrl+S** e rode os testes. **Barra vermelha na hora** — clique no teste que falhou na janela *Test Results*: ele aponta exatamente qual regra quebrou.
+3. Desfaça. Verde de novo.
