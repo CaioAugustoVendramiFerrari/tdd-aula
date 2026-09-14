@@ -10,7 +10,7 @@ Repositório de apoio da aula sobre TDD (disciplina de Teste de Software).
 | [`CHEATSHEET-JUNIT.md`](CHEATSHEET-JUNIT.md) | **Alunos** — colinha de JUnit 5 |
 | [`PASSO-A-PASSO-EXEMPLO.md`](PASSO-A-PASSO-EXEMPLO.md) | Apresentadores — roteiro do exemplo ao vivo |
 | [`ROTEIRO-DA-AULA.md`](ROTEIRO-DA-AULA.md) | Apresentadores — cronometragem e falas |
-| [`GABARITO.md`](GABARITO.md) | Apresentadores — correção comentada |
+| `GABARITO.md` | Apresentadores — correção comentada (fica nas branches `gabarito-exercicio-*`) |
 
 ## Pré-requisitos
 
@@ -56,11 +56,16 @@ Por convenção do Maven, o teste de `CalculadoraDeFrete` fica em `CalculadoraDe
 |---|---|
 | `main` | Exercícios em branco — é aqui que os alunos trabalham |
 | `exemplo-passo-a-passo` | Um commit por ciclo do exemplo da aula (rede de segurança do apresentador) |
-| `gabarito` | Exemplo e exercícios resolvidos + `GABARITO.md` — usado na correção |
+| `gabarito-exercicio-1` | Solução comentada do Exercício 1 — Calculadora de Frete |
+| `gabarito-exercicio-2` | Solução comentada do Exercício 2 — Carrinho de Compras |
+| `gabarito-exercicio-3` | Solução comentada do Exercício 3 — Conta Bancária + encerramento |
+
+> ⚠️ **Não abra as branches `gabarito-exercicio-*` antes da correção.**
+> Elas estão aqui para você revisar **depois** de tentar. Olhar a resposta antes tira justamente o que a aula quer treinar: escrever o teste primeiro e deixar ele guiar o código.
 
 ```bash
-git checkout gabarito    # ver as soluções
-git checkout main        # voltar
+git checkout gabarito-exercicio-1    # só depois da correção do exercício 1
+git checkout main                    # voltar
 ```
 
 A branch `exemplo-passo-a-passo` tem o histórico do exemplo construído ao vivo, um commit por etapa:
