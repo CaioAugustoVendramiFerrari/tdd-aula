@@ -44,7 +44,6 @@ class ValidadorDeSenhaTest {
 }
 ```
 
-**Fale para a turma:** repare que a classe `ValidadorDeSenha` ainda não existe. O Eclipse sublinha o nome de vermelho: o projeto nem compila. Isso **já é o vermelho** — o teste está dizendo o que falta construir.
 
 ### 🟢 GREEN — o mínimo para passar
 
